@@ -1,0 +1,6 @@
+include ':dec'
+include ':tool'
+include ':app'
+include ':gsonExample'
+include ':mylibrary'
+include ':videoCrop'

@@ -1,0 +1,28 @@
+plugins {
+    id 'application'
+}
+
+mainClassName = 'com.vance.videocrop.MyClass'
+jar{
+    manifestContentCharset 'utf-8'
+    metadataCharset 'utf-8'
+    manifest{
+        // manifest 文件声明主程序入口
+        attributes "Main-Class":"com.vance.videocrop.MyClass"
+    }
+
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    compile  files('libs\\jxl-2.6.12.jar')
+}
